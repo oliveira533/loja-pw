@@ -7,22 +7,12 @@
     </head>
 
     <body>
-
-        {% include './paciais/_nav.html'%}
-
-        <!-- Page Content -->
-        <div class="container">
-            <div class="row">
-            <div class="col-lg-12">
-                {% block conteudo %} {% endblock %}
-            </div>
-            </div>
+        <nav class="nav-general bg-dark">
+            {% include './paciais/_nav.html'%}
+        </nav>
+        <div class="main">
+            {% block conteudo %} {% endblock %}
         </div>
-
-        <!-- Bootstrap core JavaScript -->
-        <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
-        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
     </body>
 
 </html>
