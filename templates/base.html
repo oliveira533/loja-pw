@@ -6,13 +6,15 @@
         {% include './paciais/_head.html' %}
     </head>
 
-    <body>
+    <body class="bg-dark">
         <div class="">
             {% include './paciais/_nav.html'%}
         </div>
-        <div class="col">
-            <div class="row">
-                {% block conteudo %} {% endblock %}
+        <div class="container">
+            <div class="col fluid">
+                <div class="row d-felx justify-content-center flex-fill flex-wrap">
+                    {% block conteudo %} {% endblock %}
+                </div>
             </div>
         </div>
     </body>

@@ -2,8 +2,8 @@
 
 {% block conteudo %}
             {% for produto in produtos %}
-                <div class="card m-3" style="width: 18rem;">
-                    <img class="card-img-top img-thumbnail" src="{{produto.image}}" alt="Imagem de capa do card">
+                <div class="card m-2" style="width: 18rem;">
+                    <img class="card-img-top img-thumbnail w-100 h-75" src="{{produto.image}}" alt="Imagem de capa do card">
                     <div class="card-body">
                         <h5 class="card-title">{{produto.titulo}}</h5>
                         <p class="card-text">{{produto.preco}}</p>
