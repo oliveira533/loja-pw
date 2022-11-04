@@ -2,12 +2,13 @@
 
 {% block conteudo %}
             {% for produto in produtos %}
-                <div class="main-item">
-                    <img class="main-item-img" src="{{produto.image}}">
-                    <div class="main-item-desc">
-                        <p class="main-item-desc-title">{{produto.titulo}}</p>
-                        <p class="main-item-desc-title">{{produto.preco}}</p>
-                        <p class="main-item-desc-title">{{produto.tamanhos}}</p>
+                <div class="card m-3" style="width: 18rem;">
+                    <img class="card-img-top img-thumbnail" src="{{produto.image}}" alt="Imagem de capa do card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{produto.titulo}}</h5>
+                        <p class="card-text">{{produto.preco}}</p>
+                        <p class="card-text">{{produto.tamanhos}}</p>
+                        <a href="#" class="btn btn-primary">Visitar</a>
                     </div>
                 </div>
             {% endfor%}
