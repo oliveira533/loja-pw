@@ -1,0 +1,22 @@
+{% extends '../templates/base.html'%}
+
+{% block conteudo %}
+    <div class="bg-light h-100">
+        <div class="m-2">
+            <h1 class="mt-5">{{produto.titulo}}</h1>
+            <dl>
+
+            <img class="card-img-top img-thumbnail h-50" src="{{produto.image}}" alt="Imagem de capa do card">
+
+            <dt>Preço</dt>
+            <dd>{{produto.preco}}</dd>
+
+            <dt>Tamanhos disponiveis</dt>
+            <dd>{{produto.tamanhos}}</dd>
+
+            <dt>Descrição</dt>
+            <dd>{{produto.desc}}</dd>
+            </dl>
+        </div>
+    </div>
+{% endblock %}
