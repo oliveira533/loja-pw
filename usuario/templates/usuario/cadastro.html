@@ -4,6 +4,7 @@
     <div class="w-100 h-100 d-flex justify-content-center">
         <form class="card w-50 m-5 d-flex justify-content-center align-items-center" method="POST" action="{% url 'cadastro' %}">
             {% csrf_token %}
+            {% include '../templates/paciais/_messages.html' %}
             <div class="form-group w-75 m-2">
                 <label for="exampleInputEmail1">Nome de usuário</label>
                 <input type="tex" class="form-control" value="{{request.POST.nome}}" name="InputName" placeholder="nome">

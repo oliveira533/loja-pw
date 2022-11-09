@@ -3,6 +3,7 @@ from django.core.validators import validate_email
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 def login(request):
@@ -13,14 +14,14 @@ def login(request):
 
     if not email or not senha:
         print('Preencha todos os campos')
-        # messages.error(request, 'Preencha todos os campos')
+        messages.add_message(request, messages.ERROR, 'Preencha todos os campos')
         return render(request, 'usuario/login.html')
     
     user = auth.authenticate(request, username=email, password=senha)
 
     if not user:
         print('Usuário ou senha inválidos')
-        # messages.error(request, 'Usuário ou senha inválidos')
+        messages.add_message(request, messages.ERROR, 'Usuário ou senha inválidos')
         return render(request, 'usuario/login.html')
     else:
         print ('Login realizado com sucesso')
@@ -41,34 +42,34 @@ def cadastro(request):
 
     if not nome or not email or not senha or not senha2:
         print('Preencha todos os campos')
-        # messages.error(request, 'Preencha todos os campos')
+        messages.add_message(request, messages.ERROR, 'Preencha todos os campos')
         return render(request, 'usuario/cadastro.html')
 
     try:
         validate_email(email)
     except:
         print('Email inválido')
-        # messages.error(request, 'Email inválido')
+        messages.add_message(request, messages.ERROR, 'Email inválido')
         return render(request, 'usuario/cadastro.html')
 
     if senha != senha2:
         print('Senhas não conferem')
-        # messages.error(request, 'Senhas não conferem')
+        messages. add_message(request, messages.ERROR, 'Senhas não conferem')
         return render(request, 'usuario/cadastro.html')
     
     if len(senha) < 6:
         print('Senha precisa ter no mínimo 6 caracteres')
-        # messages.error(request, 'Senhas muito pequena')
+        messages.add_message(request, messages.ERROR, 'Senha precisa ter no mínimo 6 caracteres')
         return render(request, 'usuario/cadastro.html')
     
     if User.objects.filter(email=email).exists():
         print('Email já cadastrado')
-        # messages.error(request, 'Email já cadastrado')
+        messages.add_message(request, messages.ERROR, 'Email já cadastrado')
         return render(request, 'usuario/cadastro.html')
     
     if User.objects.filter(username=nome).exists():
         print('Nome já cadastrado')
-        # messages.error(request, 'Nome já cadastrado')
+        messages.add_message(request, messages.ERROR, 'Nome já cadastrado')
         return render(request, 'usuario/cadastro.html')
     
     user = User.objects.create_user(username=nome, email=email, password=senha)

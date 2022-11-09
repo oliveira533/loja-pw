@@ -4,6 +4,7 @@
     <div class="w-100 h-100 d-flex justify-content-center">
         <form class="card w-50 m-5 d-flex justify-content-center align-items-center" method="POST" action="{% url 'login' %}">
             {% csrf_token %}
+            {% include '../templates/paciais/_messages.html' %}
             <div class="form-group w-75 m-2">
                 <label for="exampleInputEmail1">Nome de usuário</label>
                 <input type="" class="form-control" name="InputEmail" placeholder="nome de usuário">
@@ -12,6 +13,7 @@
                 <label for="exampleInputPassword1">Senha</label>
                 <input type="password" class="form-control" name="InputPassword1" placeholder="senha">
             </div>
+            <a href="{% url 'cadastro' %}">Cadastrar-se</a>
             <button type="submit" class="btn btn-primary m-3 w-75">Login</button>
         </form>
     </div>
