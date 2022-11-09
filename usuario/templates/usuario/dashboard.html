@@ -1,5 +1,9 @@
 {% extends '../templates/base.html' %}
 
 {% block conteudo %}
-    <h1 class="bg-light">Olá, {{ user }}</h1>
+    <div class="bg-light fluid w-75 m-lg-4">
+        <h1 class="m-2">Olá {{ user }}</h1>
+        <h2 class="m-2">Seja bem vindo a nossa loja de roupas</h2>
+        <h2 class="m-2">Seu email é {{user.email}}</h2>
+    </div>
 {% endblock conteudo %}
